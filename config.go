@@ -1,12 +1,14 @@
 package main
 
-type config interface {
-	Entry(string) (string, error)
-	Entries() (map[string]string, error)
-}
+const (
+	jsonConfigType configType = "json"
+)
 
-type tomlConfig struct {
-	path string
-}
+type configType string
 
-func newTOMLC
+type configurator func(string) (map[string]string, error)
+
+type jsonConfig func(string) (map[string]string, error)
+type tomlConfig func(string) (map[string]string, error)
+type onePasswordConfig func(string) (map[string]string, error)
+type lastPassConfig func(string) (map[string]string, error)
