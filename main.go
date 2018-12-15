@@ -1,8 +1,6 @@
 package main
 
 import (
-	"encoding/json"
-	"fmt"
 	"log"
 	"os"
 )
@@ -20,10 +18,4 @@ func main() {
 			log.Fatalf("could not create config file - %v\n", err)
 		}
 	}
-	var cfg config
-	err = json.NewDecoder(cfgFile).Decode(&cfg)
-	if err != nil {
-		log.Fatalf("could not decode config file - %v\n", err)
-	}
-	fmt.Println(cfg)
 }
